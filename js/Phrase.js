@@ -1,6 +1,6 @@
 class Phrase {
-  constructor() {
-    console.log("phrase works");
+  constructor(phrase) {
+    // this.phrase = phrase
   }
   addPhraseToDisplay(phrase) {
     //this value is a String
@@ -17,15 +17,18 @@ class Phrase {
       //add a string of letters for the phrase imputted into the value;
     }
   }
-  checkLetter(){
-    //checks if User keyboard input is the same as phrase letter
-    console.log("check Letter is working");
-    let totalKeys = document.querySelectorAll(".keyrow button");
-    let li = document.querySelectorAll("#phrase ul li");
-    //first gather all keyboard inputs and put event listeners on them.
+checkLetter(){
+  const totalKeys = [...document.querySelectorAll(".keyrow button")];
+  const li = [...document.querySelectorAll("#phrase ul li")];
+  totalKeys.forEach(function(key) {
+    key.addEventListener("click", function() {
+      for (let i = 0; i < li.length; i++) {
+        if (key.textContent === li[i].textContent) {
+          li[i].className = "show letter";
+        }
+      }
+    });
+  });
+
   }
-
-}
-
-
-//adds li tags to div with empty ul
+}//end Phrase
