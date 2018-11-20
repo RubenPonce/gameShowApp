@@ -1,24 +1,38 @@
 class Game{
-  constructor(missed, phrases){
-this.missed = missed;
-this.phrases = [];
+  constructor(missed, phrase){
+this.missed = 0;
+this.phrase = phrase;
   }
   getRandomPhrase(){
-    const phrases = ["test phrase",
-    "win condition",
-     "stuff"];
-     var random = Math.random() * phrases.length;
+    const phrases = ["Test Phrase",
+    "Object Oriented",
+     "JavaScript",
+    "Version Control"];
+     var random = Math.floor(Math.random() * phrases.length);
      console.log(phrases[random]);
      return phrases[random];
 
 
   }//end method getRandomPhrase()
-  handleInteraction(){
 
+  handleInteraction(location,letter){
+
+    if(location.checkLetter(letter) ){//evaluates letters
+      location.showMatchedLetter(letter);//reveals letters that match
+    } else{
+      this.removeLife(this.missed);
+      this.missed+=1;
+      console.log("your life has been removed!");
+    }
 
 
   }//end method handleInteraction()
-  removeLife(){//call when checkLetter returns false
+  removeLife(heartCounter){//call when checkLetter returns false
+  let liveHeart =document.querySelectorAll(".tries img");
+
+  liveHeart[heartCounter].src = "images/lostHeart.png";
+
+
 
   }//end method removeLife()
   checkForWin(){//call when all letters have been revealed
@@ -28,6 +42,7 @@ this.phrases = [];
 
   }//end method gameOver()
   startGame(){//calls the getRandomPhrase() method, and adds that phrase to the board by calling the Phrase class' addPhraseToDisplay() method.
+  return this.getRandomPhrase()
   }//end method startGame()
 
 }//end class Game

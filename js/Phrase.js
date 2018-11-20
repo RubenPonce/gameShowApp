@@ -1,6 +1,7 @@
 class Phrase {
   constructor(phrase) {
     this.phrase = phrase;
+    this.game = new Game(0, phrase);
   }
   addPhraseToDisplay() {
     //this value is a String
