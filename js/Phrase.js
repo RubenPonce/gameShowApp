@@ -29,7 +29,7 @@ class Phrase {
     for (let i = 0; i < this.phrase.length; i++) {
       if(this.phrase[i]===letter){
         console.log("this is a correct choice");
-        return true
+        return true;
       } else {
         console.log("this is a false choice");
       }
