@@ -202,3 +202,6 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+.disabled{
+  background-color:rgb(99, 95, 98, .75)
+}
