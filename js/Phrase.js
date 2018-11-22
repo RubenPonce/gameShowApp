@@ -1,10 +1,10 @@
 class Phrase {
   constructor(phrase) {
     this.phrase = phrase;
-    this.game = new Game(0, phrase);
   }
-  addPhraseToDisplay() {
+  addPhraseToDisplay(phrase) {
     //this value is a String
+    console.log(this.phrase);
     let phraseUl = document.querySelector("#phrase ul");
     for (let i = 0; i < this.phrase.length; i++) {
       //begin for-loop

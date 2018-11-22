@@ -1,7 +1,8 @@
 class Game {
-  constructor(missed, phrases) {
-    this.missed = 0;
-    this.phrases = [];
+  constructor(missed, phrases, winCounter) {
+    this.missed = missed;
+    this.phrases = phrases;
+    this.winCounter = winCounter;
   }
   getRandomPhrase() {
     this.phrases.push(
@@ -17,16 +18,16 @@ class Game {
     return this.phrases[random];
   } //end method getRandomPhrase()
 
-  handleInteraction(location, letter) {
+  handleInteraction(location, letter, currentPhrase,phraseLength) {
     if (location.checkLetter(letter)) {
       //evaluates letters
       location.showMatchedLetter(letter); //reveals letters that match
-      //checkForWin();
+      this.checkForWin(currentPhrase,phraseLength, this.winCounter);
     } else {
       this.removeLife(this.missed);
       this.missed += 1;
-      console.log("your life has been removed!");
       this.gameOver();
+
     }
   } //end method handleInteraction()
 
@@ -37,8 +38,25 @@ class Game {
       liveHeart[heartCounter].src = "images/lostHeart.png";
     }
   } //end method removeLife()
-  checkForWin(phrase,winCounter) {
-    
+  checkForWin(listLetter,phraseLength, winCounter) {
+  // while the win counter is not equal to the phrase length
+  console.log(listLetter);
+  const noSpaces = listLetter.filter(letter=> letter.textContent != " ");
+  noSpaces.forEach(function(letter){
+    if(letter.className ==="show letter"){
+          winCounter+=1;
+    } else {
+      console.log("this wont do anything");
+    }
+  });
+  console.log(phraseLength);
+  if(winCounter ===noSpaces.length){
+    console.log("you WIN!!!");
+    document.querySelector("h2[class = 'title']").textContent = "Congratulations!";
+    document.querySelector("#overlay").style.display = "flex";
+    document.querySelector("#overlay").className = "win";
+  }
+
   } //end method checkForWin()
   gameOver() {
     //call when all hearts are lost
@@ -50,6 +68,6 @@ class Game {
   } //end method gameOver()
   startGame() {
     //calls the getRandomPhrase() method, and adds that phrase to the board by calling the Phrase class' addPhraseToDisplay() method.
-    return this.getRandomPhrase();
+     return this.getRandomPhrase();
   } //end method startGame()
 } //end class Game
