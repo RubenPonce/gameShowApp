@@ -3,8 +3,8 @@ const game = new Game(0,[],0);
 let newPhrase = game.startGame().toUpperCase()
 const phrase = new Phrase(newPhrase);
 const buttonKeys = [...document.querySelectorAll(".key")];
-document.querySelector("#overlay").addEventListener('click',function(){
-  this.style.display = "none";
+document.querySelector("#overlay button").addEventListener('click',function(){
+  this.parentElement.style.display = "none";
 });
 phrase.addPhraseToDisplay();//will need to make 'array' of phrases
 let currentPhraseLetters = [...document.querySelectorAll("#phrase ul li")]
@@ -15,12 +15,12 @@ buttonKeys.map(button=>button.onclick = function(e){
  disable(e.target);
 });
 
+
 function disable(target){
   target.setAttribute("disabled", "disabled");
 }
 // console.log(currentPhraseLetters);
 // checkForWin()
-
 // phrase.showMatchedLetter();
 
 /*This file creates a new instance of the Game class, adds event listeners for the onscreen keyboard and a function to display the game:

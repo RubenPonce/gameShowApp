@@ -63,8 +63,11 @@ button {
 #btn__reset {
 	width: 200px;
 	margin: 0 auto;
+   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px
 }
-
+#btn__reset:hover{ box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transition: all 0.3s;
+  transform: translateZ(10px);}
 .main-container {
   display: flex;
   flex-direction: column;
@@ -87,6 +90,12 @@ button {
 
 .header {
   color: #3a3f58;
+}
+#banner span{
+  font-size: 2em;
+  font-style: italic;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 
@@ -128,7 +137,15 @@ button {
 .keyrow {
   display: flex;
   justify-content: center;
+  -webkit-transition: width 2s, height 2s, -webkit-transform .5s; /* Safari */
+  transition: width 1s, height 1s, transform .5s;
 }
+
+.keyrow button:hover {
+    -webkit-transform: scale(1.5,1.5); /* Safari */
+    transform: scale(1.5,1.5);
+}
+
 
 .chosen {
   background: #3a3f58;
@@ -177,10 +194,13 @@ button {
 
 .title {
   color: #FFF;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  color: rgb(164, 153, 179);
 }
 
 .start {
-  background-color: #3a3f58;
+  background: linear-gradient(#7315c7 25%, #64e6e2);
 }
 
 .start a {
