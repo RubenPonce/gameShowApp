@@ -1,16 +1,15 @@
 const game = new Game(0,[],0);
 
-let newPhrase = game.startGame().toUpperCase()
-const phrase = new Phrase(newPhrase);
+let newPhrase = game.startGame().toUpperCase()//newPhrase is the "Phrase..."
+const phrase = new Phrase(newPhrase);//phrase is the instance that calls Phrase.js
 const buttonKeys = [...document.querySelectorAll(".key")];
 document.querySelector("#overlay button").addEventListener('click',function(){
   this.parentElement.style.display = "none";
 });
-phrase.addPhraseToDisplay();//will need to make 'array' of phrases
+phrase.addPhraseToDisplay();//will need to make 'array' of phrases //phrase calls Phrase.js method addPhraseToDisplay
 let currentPhraseLetters = [...document.querySelectorAll("#phrase ul li")]
 buttonKeys.map(button=>button.onclick = function(e){
- game.handleInteraction(phrase, e.target.textContent.toUpperCase(),currentPhraseLetters,newPhrase.length);
-
+ game.handleInteraction(phrase, e.target.textContent.toUpperCase(),currentPhraseLetters);// phrase 
  e.target.className = "disabled";
  disable(e.target);
 });

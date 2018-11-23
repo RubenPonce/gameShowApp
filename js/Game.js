@@ -18,11 +18,11 @@ class Game {
     return this.phrases[random];
   } //end method getRandomPhrase()
 
-  handleInteraction(location, letter, currentPhrase,phraseLength) {
+  handleInteraction(location, letter, currentPhrase) {
     if (location.checkLetter(letter)) {
       //evaluates letters
       location.showMatchedLetter(letter); //reveals letters that match
-      this.checkForWin(currentPhrase,phraseLength, this.winCounter);
+      this.checkForWin(currentPhrase, this.winCounter);
     } else {
       this.removeLife(this.missed);
       this.missed += 1;
@@ -38,7 +38,7 @@ class Game {
       liveHeart[heartCounter].src = "images/lostHeart.png";
     }
   } //end method removeLife()
-  checkForWin(listLetter,phraseLength, winCounter) {
+  checkForWin(listLetter, winCounter) {
   // while the win counter is not equal to the phrase length
   console.log(listLetter);
   const noSpaces = listLetter.filter(letter=> letter.textContent != " ");
@@ -49,7 +49,6 @@ class Game {
       console.log("this wont do anything");
     }
   });
-  console.log(phraseLength);
   if(winCounter ===noSpaces.length){
     console.log("you WIN!!!");
     document.querySelector("h2[class = 'title']").textContent = "Congratulations!";
