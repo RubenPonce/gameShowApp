@@ -8,10 +8,14 @@ class Game {
   getRandomPhrase() {
     this.phrases.push(
       ...[
-        "Test Phrase",
+        "Technical Word Salad",
       "Object Oriented",
       "JavaScript",
       "Version Control",
+      "KeyPress",
+      "Boolean Logical Operators",
+      "Array Literals",
+      "Ternary Operator"
     ]
     );
     var random = Math.floor(Math.random() * this.phrases.length);
