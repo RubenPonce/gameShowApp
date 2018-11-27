@@ -53,6 +53,10 @@ class Game {
   });
   if(winCounter ===noSpaces.length){
     console.log("you WIN!!!");
+    document.querySelector("#overlay p").innerHTML = "You WIN!";
+    document.querySelector("#btn__reset").textContent = "Play again?";
+
+
     document.querySelector("h2[class = 'title']").textContent = "Congratulations!";
     document.querySelector("#overlay").style.display = "flex";
     document.querySelector("#overlay").className = "win";
@@ -62,6 +66,10 @@ class Game {
   gameOver() {
     //call when all hearts are lost
     if (this.missed === 5) {
+      //Message
+      document.querySelector("#overlay p").innerHTML = "You LOST!";
+      document.querySelector("#btn__reset").textContent = "Try again?";
+
       document.querySelector("h2[class = 'title']").textContent = "Game Over";
       document.querySelector("#overlay").style.display = "flex";
       document.querySelector("#overlay").className = "lose";

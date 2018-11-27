@@ -59,7 +59,7 @@ button {
   transition: var(--transition);
   cursor: pointer;
 }
-
+/*button hover by Simone Bernabè https://codepen.io/simoberny/pen/pJZJQY*/
 #btn__reset {
 	width: 200px;
 	margin: 0 auto;

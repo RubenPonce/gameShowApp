@@ -13,28 +13,46 @@ const buttonKeys = [...document.querySelectorAll(".key")];
 
 //**********************************
 
-
-
 buttonKeys.map(button=>button.onclick = function(e){
 currentPhraseLetters  = [...document.querySelectorAll("#phrase ul li")]
 markButton(e.target, currentPhraseLetters);
-});
+}
+);
+
+window.addEventListener('keypress', x => {
+  let key = x.key;
+  console.log(key);
+for (let i = 0; i < buttonKeys.length; i++) {
+      currentPhraseLetters  = [...document.querySelectorAll("#phrase ul li")];
+    if(key.toLowerCase() === buttonKeys[i].textContent){
+  markButton(buttonKeys[i], currentPhraseLetters);
+}
+}
+}
+);
+
+
 
 
 //-----------------------------------
 function disable(target){
   target.setAttribute("disabled", "disabled");
 }
+function enable(target){
+  target.setAttribute("disabled", " ");
+}
 //**********************************
 
 function resetDisplay(event){
     event.parentElement.style.display = "none";
     let li = [...document.querySelectorAll("#phrase ul li")];
-    let buttonKeys = [...document.querySelectorAll(".keys")];
-    buttonKeys.map(function(button){
-      if(button.className = "disabled"){
+    buttonKeys.forEach(function(button){
+      if(button.className === "disabled"){
+        button.className = "key"
       button.classList.remove("disabled");
+      button.disabled = false;
     };
+    document.querySelectorAll(".tries img").forEach(life => life.src = "images/liveHeart.png");
   })
     if(li.length >0){
     li.map(listItem => listItem.parentElement.removeChild(listItem));
@@ -43,6 +61,11 @@ function resetDisplay(event){
 }
 function markButton(button, currentPhrase){
   newGame.handleInteraction(button.textContent.toUpperCase(),currentPhraseLetters);// phrase
+  button.className = "disabled";
+  disable(button);
+}
+function markKey(button, currentPhrase){
+  newGame.handleInteraction(button.toUpperCase(),currentPhraseLetters);// phrase
   button.className = "disabled";
   disable(button);
 }
