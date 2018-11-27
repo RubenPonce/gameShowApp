@@ -5,6 +5,7 @@ class Game {
     this.winCounter = winCounter;
     this.startGame();
   }
+  //gets a Random Phrase
   getRandomPhrase() {
     this.phrases.push(
       ...[
@@ -22,9 +23,9 @@ class Game {
     new Phrase(this.phrases[random]).addPhraseToDisplay();
   } //end method getRandomPhrase()
 
+//checks if letter is matched, then shows the matched letter
   handleInteraction(letter, currentPhrase) {
     if (Phrase.checkLetter(letter)) {
-      //evaluates letters
       Phrase.showMatchedLetter(letter); //reveals letters that match
       this.checkForWin(currentPhrase, this.winCounter);
     } else {
@@ -35,15 +36,16 @@ class Game {
     }
   } //end method handleInteraction()
 
+  //removes a heart
   removeLife(heartCounter) {
-    //call when checkLetter returns false
     let liveHeart = document.querySelectorAll(".tries img");
     if (this.missed <= 4) {
       liveHeart[heartCounter].src = "images/lostHeart.png";
     }
   } //end method removeLife()
+
+//displays You WIN overlay
   checkForWin(currentPhrase, winCounter) {
-  // while the win counter is not equal to the phrase length
   const noSpaces = currentPhrase.filter(letter=> letter.textContent != " ");
   noSpaces.forEach(function(letter){
     if(letter.className ==="show letter"){
@@ -61,8 +63,10 @@ class Game {
   }
 
   } //end method checkForWin()
+
+//displays You LOST overlay
   gameOver() {
-    //call when all hearts are lost
+    //calls the Game Over display
     if (this.missed === 5) {
       //Message
       document.querySelector("#overlay p").innerHTML = "You LOST!";
@@ -73,8 +77,9 @@ class Game {
       document.querySelector("#overlay").className = "lose";
     }
   } //end method gameOver()
+
   startGame() {
-    //calls the getRandomPhrase() method, and adds that phrase to the board by calling the Phrase class' addPhraseToDisplay() method.
      this.getRandomPhrase();
   } //end method startGame()
+
 } //end class Game
