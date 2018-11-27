@@ -206,6 +206,17 @@ button {
   color: #fff;
 }
 
+.win,.lose{  -webkit-animation: fadein 1.25s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadein 1.25s; /* Firefox < 16 */
+       -ms-animation: fadein 1.25s; /* Internet Explorer */
+        -o-animation: fadein 1.25s; /* Opera < 12.1 */
+           animation: fadein 1.25s;
+
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 .win {
   background-color: var(--color-win);
 }
