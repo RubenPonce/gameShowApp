@@ -21,13 +21,13 @@ window.addEventListener("keypress", x => {
   let key = x.key;
   for (let i = 0; i < buttonKeys.length; i++) {
     currentPhraseLetters = [...document.querySelectorAll("#phrase ul li")];
-    if (key.toLowerCase() === buttonKeys[i].textContent) {
+    if (key.toLowerCase() === buttonKeys[i].textContent&&buttonKeys[i].className!="disabled") {
       markButton(buttonKeys[i], currentPhraseLetters);
     }
   }
 });
 
-//prevents phrase from being seen through highlighting
+//prevents phrase from being seen on mouse down
 document.querySelector("#phrase").addEventListener('mousedown', (e)=> e.preventDefault());
 
 
