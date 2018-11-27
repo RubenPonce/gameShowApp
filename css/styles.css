@@ -141,11 +141,10 @@ button {
   transition: width 1s, height 1s, transform .5s;
 }
 
-.keyrow button:hover {
+.keyrow button:hover{
     -webkit-transform: scale(1.5,1.5); /* Safari */
     transform: scale(1.5,1.5);
 }
-
 
 .chosen {
   background: #3a3f58;

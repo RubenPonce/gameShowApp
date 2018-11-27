@@ -21,7 +21,6 @@ markButton(e.target, currentPhraseLetters);
 
 window.addEventListener('keypress', x => {
   let key = x.key;
-  console.log(key);
 for (let i = 0; i < buttonKeys.length; i++) {
       currentPhraseLetters  = [...document.querySelectorAll("#phrase ul li")];
     if(key.toLowerCase() === buttonKeys[i].textContent){
