@@ -31,6 +31,7 @@ window.addEventListener("keypress", x => {
 function disable(target) {
   target.setAttribute("disabled", "disabled");
 }
+
 // resets the display by resetting heart images, re-enabling buttons, and turns off overlay
 function resetDisplay(event) {
   event.parentElement.style.display = "none";

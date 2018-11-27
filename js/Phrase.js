@@ -18,9 +18,8 @@ class Phrase {
     } //end for-loop
   } //end method addPhraseToDisplay()
 
+//checks if a letter matches any of the list items in the phrase.
   static checkLetter(letter) {
-    //Checks if a letter matches the button pressed?
-    //
     let buttonKeys = [...document.querySelectorAll(".key")];
     const keyText = buttonKeys.map(key=> key.textContent.toUpperCase());
     const li =[...document.querySelectorAll("#phrase ul li")];
@@ -34,6 +33,8 @@ class Phrase {
 
 
   } //end method checkLetter()
+
+  //reveals the letter that was verified by checkLetter() in handleInteraction().
 static  showMatchedLetter(letter){
     const li =[...document.querySelectorAll("#phrase ul li")];
     const liText = li.map(list => list.textContent);
@@ -44,4 +45,5 @@ static  showMatchedLetter(letter){
     }
 
   }//end method showMatchedLetter()
+
 } //end Phrase()
