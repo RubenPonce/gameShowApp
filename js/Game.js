@@ -44,8 +44,9 @@ class Game {
   console.log(currentPhrase);
   const noSpaces = currentPhrase.filter(letter=> letter.textContent != " ");
   noSpaces.forEach(function(letter){
+    console.log( winCounter)
     if(letter.className ==="show letter"){
-          winCounter+=1;
+           winCounter+=1;
     } else {
       console.log("this wont do anything");
     }
