@@ -2,7 +2,7 @@ class Phrase {
   constructor(phrase) {
     this.phrase = phrase;
   }
-  addPhraseToDisplay(phrase) {
+  addPhraseToDisplay() {
     //this value is a String
     console.log(this.phrase);
     let phraseUl = document.querySelector("#phrase ul");
@@ -19,15 +19,16 @@ class Phrase {
     } //end for-loop
   } //end method addPhraseToDisplay()
 
-  checkLetter(letter) {
+  static checkLetter(letter) {
     //Checks if a letter matches the button pressed?
     //
     let buttonKeys = [...document.querySelectorAll(".key")];
     const keyText = buttonKeys.map(key=> key.textContent.toUpperCase());
     const li =[...document.querySelectorAll("#phrase ul li")];
     const liText = li.map(list => list.textContent);
-    for (let i = 0; i < this.phrase.length; i++) {
-      if(this.phrase[i]===letter){
+    console.log(liText);
+    for (let i = 0; i < liText.length; i++) {
+      if(liText[i]===letter){
         console.log("this is a correct choice");
         return true;
       } else {
@@ -38,11 +39,11 @@ class Phrase {
 
 
   } //end method checkLetter()
-  showMatchedLetter(letter){
+static  showMatchedLetter(letter){
     const li =[...document.querySelectorAll("#phrase ul li")];
     const liText = li.map(list => list.textContent);
-    for (let i = 0; i < this.phrase.length; i++) {
-      if(this.phrase[i]===letter){
+    for (let i = 0; i < liText.length; i++) {
+      if(liText[i]===letter){
         li[i].className = "show letter";
       }
     }
