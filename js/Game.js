@@ -14,7 +14,7 @@ class Game {
       "JavaScript",
       "Version Control",
       "KeyPress",
-      "Boolean Logical Operators",
+      "Boolean Operators",
       "Array Literals",
       "Ternary Operator"
     ]
