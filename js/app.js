@@ -27,6 +27,10 @@ window.addEventListener("keypress", x => {
   }
 });
 
+//prevents phrase from being seen through highlighting
+document.querySelector("#phrase").addEventListener('mousedown', (e)=> e.preventDefault());
+
+
 //Disable Buttons
 function disable(target) {
   target.setAttribute("disabled", "disabled");

@@ -4,6 +4,7 @@ class Game {
     this.phrases = phrases;
     this.winCounter = winCounter;
     this.startGame();
+    this.phrase;
   }
   //gets a Random Phrase
   getRandomPhrase() {
