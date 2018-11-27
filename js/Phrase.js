@@ -4,7 +4,6 @@ class Phrase {
   }
   addPhraseToDisplay() {
     //this value is a String
-    console.log(this.phrase);
     let phraseUl = document.querySelector("#phrase ul");
     for (let i = 0; i < this.phrase.length; i++) {
       //begin for-loop
@@ -26,13 +25,9 @@ class Phrase {
     const keyText = buttonKeys.map(key=> key.textContent.toUpperCase());
     const li =[...document.querySelectorAll("#phrase ul li")];
     const liText = li.map(list => list.textContent);
-    console.log(liText);
     for (let i = 0; i < liText.length; i++) {
       if(liText[i]===letter){
-        console.log("this is a correct choice");
         return true;
-      } else {
-        console.log("this is a false choice");
       }
     }
 

@@ -19,7 +19,6 @@ class Game {
     ]
     );
     var random = Math.floor(Math.random() * this.phrases.length);
-    console.log(this.phrases[random]);
     new Phrase(this.phrases[random]).addPhraseToDisplay();
   } //end method getRandomPhrase()
 
@@ -45,18 +44,13 @@ class Game {
   } //end method removeLife()
   checkForWin(currentPhrase, winCounter) {
   // while the win counter is not equal to the phrase length
-  console.log(currentPhrase);
   const noSpaces = currentPhrase.filter(letter=> letter.textContent != " ");
   noSpaces.forEach(function(letter){
-    console.log( winCounter)
     if(letter.className ==="show letter"){
            winCounter+=1;
-    } else {
-      console.log("this wont do anything");
     }
   });
   if(winCounter ===noSpaces.length){
-    console.log("you WIN!!!");
     document.querySelector("#overlay p").innerHTML = "You WIN!";
     document.querySelector("#btn__reset").textContent = "Play again?";
 
